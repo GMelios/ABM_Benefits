@@ -1,0 +1,75 @@
+{
+  "_generated_by": "src/estimation/estimate.py",
+  "_generated_at": "2026-06-24T11:58:15+00:00",
+  "_source": "UKHLS (Understanding Society), EUL, waves 1-11; GOR geography",
+  "name": "earnings",
+  "spec": "WLS on ln(labour income | employed), cluster(pidp)",
+  "outcome": "ln(income_labour_net) | employed",
+  "waves": "1-11",
+  "variables": [
+    "age10",
+    "age10_sq",
+    "health_index",
+    "education",
+    "region",
+    "sex"
+  ],
+  "n_obs": 217084,
+  "n_persons": 47953,
+  "weight": "weight_xsec",
+  "coefficients": {
+    "const": 5.090731976322733,
+    "age10": 0.8600433994530481,
+    "age10_sq": -0.09480458077900605,
+    "health_index": 0.6672114465921768,
+    "education_degree": 0.3098460519821362,
+    "education_gcse": -0.14161624339498066,
+    "education_no_qual": -0.3576538074642579,
+    "education_other_higher": 0.09750320846130521,
+    "education_other_qual": -0.21137086201979233,
+    "region_East of England": 0.06898912489797678,
+    "region_London": 0.1524727359161367,
+    "region_North East": -0.015794851996386132,
+    "region_North West": 0.013786958807218917,
+    "region_Northern Ireland": -0.006896747757126181,
+    "region_Scotland": 0.023330528829149474,
+    "region_South East": 0.07611509787612464,
+    "region_South West": -0.037314146179768234,
+    "region_Wales": -0.02443926160568944,
+    "region_West Midlands": 0.03407618258964734,
+    "region_Yorkshire and the Humber": -0.026267613024519604,
+    "sex_2.0": -0.3922292353448258
+  },
+  "std_errors": {
+    "const": 0.03529520942224575,
+    "age10": 0.014435645043614777,
+    "age10_sq": 0.0017489260317766345,
+    "health_index": 0.03624160301148765,
+    "education_degree": 0.008886120294921852,
+    "education_gcse": 0.009288568182694442,
+    "education_no_qual": 0.01725642287855377,
+    "education_other_higher": 0.01084854413801763,
+    "education_other_qual": 0.013898067597343777,
+    "region_East of England": 0.015142052694210482,
+    "region_London": 0.015826596002971996,
+    "region_North East": 0.018006383959876065,
+    "region_North West": 0.014498587795019382,
+    "region_Northern Ireland": 0.016167093360815867,
+    "region_Scotland": 0.014740431744627438,
+    "region_South East": 0.014147257878831455,
+    "region_South West": 0.015377240055690055,
+    "region_Wales": 0.0158038167116047,
+    "region_West Midlands": 0.015273451870175928,
+    "region_Yorkshire and the Humber": 0.01521770708854058,
+    "sex_2.0": 0.006490191260309055
+  },
+  "diagnostics": {
+    "rsquared": 0.20005625872339639
+  },
+  "notes": [
+    "Mincer-style: positive returns to education, concave age profile expected."
+  ],
+  "caveats": [
+    "Selection into employment not corrected (estimated on workers only)."
+  ]
+}

@@ -1,0 +1,22 @@
+# Baseline scenario, both services on, default levers (PolicyConfig defaults).
+# Load with: PolicyConfig.from_yaml("experiments/configs/baseline.yaml")
+# A scenario is just a set of policy levers; vary these to define alternatives.
+
+n_agents: 2500
+horizon: 10
+base_wave: 1
+discount_delta: 0.97
+
+# income-support service (cash transfer)
+income_support_on: true
+is_eligibility_income: 1000.0   # £/mo market income threshold for eligibility
+is_min_income: 1200.0           # £/mo guaranteed net income (transfer tops up to this)
+is_awareness: 1.0               # take-up multiplier (calibrated at run time)
+is_budget: null                 # uncapped
+
+# healthcare service (capacity-constrained access)
+healthcare_on: true
+hc_need_threshold: 0.50         # health index below which care is needed
+hc_awareness: 0.7               # probability a needy agent seeks care
+hc_capacity_per_1000: 80.0      # provider slots per 1,000 population per tick
+hc_access_health_effect: 0.02   # health-index gain per access (CALIBRATION, TODO)

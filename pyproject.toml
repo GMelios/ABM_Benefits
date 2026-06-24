@@ -11,23 +11,23 @@ dependencies = [
     "numpy>=1.26",
     "scipy>=1.13",
     "statsmodels>=0.14",
-    "linearmodels>=6.0",      # panel FE / dynamic panel estimators
+    "linearmodels>=6.0",     # panel FE / dynamic panel estimators
     # --- synthetic population (src/population) ---
-    "ipfn>=1.4",              # iterative proportional fitting
+    "ipfn>=1.4",             # iterative proportional fitting
     # --- behaviour layer: the ABM (src/model) ---
-    "mesa>=3.0,<4",           # Mesa 3.x stable; Mesa 4 is pre-release — do not adopt (CLAUDE.md §5)
-    "networkx>=3.0",          # required by mesa.discrete_space (top-level import)
+    "mesa>=3.0,<4",          # Mesa 3.x stable; Mesa 4 is pre-release, do not adopt
+    "networkx>=3.0",         # required by mesa.discrete_space (top-level import)
     # --- experiments: sensitivity + calibration (src/experiments) ---
     "SALib>=1.5",
     "optuna>=3.6",
     # --- outputs ---
     "matplotlib>=3.8",
-    "pyyaml>=6.0",            # config-driven scenario YAMLs
+    "pyyaml>=6.0",           # config-driven scenario YAMLs
 ]
 
 [project.optional-dependencies]
-# Spatial layer — added only when Mesa-Geo geometry/catchments are needed.
-# v1 uses a region index (GOR); this keeps the heavy GDAL stack out of the core sync.
+# Spatial layer, added only when Mesa-Geo geometry/catchments are needed.
+# the core build uses a region index (GOR); this keeps the heavy GDAL stack out of the core sync.
 spatial = [
     "geopandas>=1.0",
     "mesa-geo>=0.9",
@@ -55,7 +55,7 @@ build-backend = "hatchling.build"
 packages = ["src"]
 
 # ----------------------------------------------------------------------------
-# Style & quality (CLAUDE.md §5): type hints, docstrings, ruff + black
+# Style and quality: type hints, docstrings, ruff and black
 # ----------------------------------------------------------------------------
 [tool.black]
 line-length = 100
@@ -68,9 +68,9 @@ target-version = "py312"
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "NPY", "D"]  # incl. import-sort, pyupgrade, bugbear, numpy, docstrings
 ignore = [
-    "D100",  # missing docstring in public module (headers used instead)
-    "D104",  # missing docstring in public package
-    "E501",  # line length handled by black
+    "D100", # missing docstring in public module (headers used instead)
+    "D104", # missing docstring in public package
+    "E501", # line length handled by black
 ]
 
 [tool.ruff.lint.pydocstyle]

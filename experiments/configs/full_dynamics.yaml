@@ -1,0 +1,29 @@
+# "Full model" scenario, both services on + population dynamics (entry/exit) enabled.
+# Demonstrates the open-population regime: age-based mortality removes agents and an equal
+# number of young entrants join each year (stationary N). Mortality is age-only by default, so
+# services do not extend life (health->mortality is a flagged extension).
+# Load with: PolicyConfig.from_yaml("experiments/configs/full_dynamics.yaml")
+
+n_agents: 2500
+horizon: 15                  # longer horizon is now credible with demographic turnover
+base_wave: 1
+discount_delta: 0.97
+
+# population dynamics
+population_dynamics: true
+mortality_multiplier: 1.0    # scenario lever scaling the age-mortality schedule
+entry_max_age: 21            # entrants drawn from agents at/below this age
+
+# income-support service (cash transfer)
+income_support_on: true
+is_eligibility_income: 1000.0
+is_min_income: 1200.0
+is_awareness: 1.0            # calibrated at run time
+is_budget: null
+
+# healthcare service (capacity-constrained access)
+healthcare_on: true
+hc_need_threshold: 0.50
+hc_awareness: 0.7
+hc_capacity_per_1000: 80.0
+hc_access_health_effect: 0.02   # CALIBRATION, TODO

@@ -1,0 +1,79 @@
+{
+  "_generated_by": "src/estimation/estimate.py",
+  "_generated_at": "2026-06-24T11:58:14+00:00",
+  "_source": "UKHLS (Understanding Society), EUL, waves 1-11; GOR geography",
+  "name": "employment",
+  "spec": "logit (GLM Binomial/logit), cluster(pidp)",
+  "outcome": "employed_{t+1} (bool)",
+  "waves": "1-11",
+  "variables": [
+    "employed_f",
+    "health_index",
+    "age10",
+    "age10_sq",
+    "education",
+    "region",
+    "sex"
+  ],
+  "n_obs": 193027,
+  "n_persons": 39973,
+  "weight": "weight_long",
+  "coefficients": {
+    "const": -5.561277878099808,
+    "employed_f": 3.9802483160032462,
+    "health_index": 3.0058660064717673,
+    "age10": 1.8466659264884895,
+    "age10_sq": -0.246201426094995,
+    "education_degree": 0.12553808794651208,
+    "education_gcse": -0.1443073640294882,
+    "education_no_qual": -0.5179303998327601,
+    "education_other_higher": 0.0523229713172802,
+    "education_other_qual": -0.18132322302064713,
+    "region_East of England": 0.05263441955043472,
+    "region_London": -0.06416985586008901,
+    "region_North East": -0.24708698774049104,
+    "region_North West": -0.05829886878211553,
+    "region_Northern Ireland": -0.11418877699354364,
+    "region_Scotland": -0.10754689947004564,
+    "region_South East": -0.003241421416459389,
+    "region_South West": 0.0864662996860331,
+    "region_Wales": -0.005160403626661779,
+    "region_West Midlands": -0.041472383269050894,
+    "region_Yorkshire and the Humber": -0.07402119623556892,
+    "sex_2.0": -0.303811108899245
+  },
+  "std_errors": {
+    "const": 0.11161550890634961,
+    "employed_f": 0.02844627820501065,
+    "health_index": 0.10459723665979867,
+    "age10": 0.0458653744548571,
+    "age10_sq": 0.005221271320365648,
+    "education_degree": 0.03111773667423804,
+    "education_gcse": 0.03016639474620077,
+    "education_no_qual": 0.044475239997670384,
+    "education_other_higher": 0.03547093004653973,
+    "education_other_qual": 0.04266288620427945,
+    "region_East of England": 0.04770167069050222,
+    "region_London": 0.04727558756872165,
+    "region_North East": 0.058368129385439615,
+    "region_North West": 0.04657802952366292,
+    "region_Northern Ireland": 0.05446745026507968,
+    "region_Scotland": 0.04741857102278267,
+    "region_South East": 0.04370999543776016,
+    "region_South West": 0.04736516918856593,
+    "region_Wales": 0.054931936229089186,
+    "region_West Midlands": 0.04827895318152971,
+    "region_Yorkshire and the Humber": 0.048677386681352956,
+    "sex_2.0": 0.020997721183521625
+  },
+  "diagnostics": {
+    "state_dependence_employed_t": 3.9802483160032462,
+    "health_channel_coef": 3.0058660064717673
+  },
+  "notes": [
+    "health_index coef > 0 is the 'better health -> employment' indirect channel."
+  ],
+  "caveats": [
+    "Health is endogenous to employment; coefficient is associational, not causal."
+  ]
+}

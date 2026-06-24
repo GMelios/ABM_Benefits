@@ -1,0 +1,45 @@
+{
+  "_generated_by": "src/estimation/estimate.py",
+  "_generated_at": "2026-06-24T11:58:14+00:00",
+  "_source": "UKHLS (Understanding Society), EUL, waves 1-11; GOR geography",
+  "name": "health_dynamics",
+  "spec": "fractional logit (GLM Binomial/logit), cluster(pidp)",
+  "outcome": "health_index_{t+1} in [0,1] (SF-12 PCS/MCS proxy)",
+  "waves": "1-11",
+  "variables": [
+    "health_index",
+    "age10",
+    "age10_sq",
+    "employed_f",
+    "log_income"
+  ],
+  "n_obs": 184758,
+  "n_persons": 38770,
+  "weight": "weight_long",
+  "coefficients": {
+    "const": -1.4082897951230304,
+    "health_index": 2.964721361816862,
+    "age10": -0.01893489080634386,
+    "age10_sq": -0.0008109165965711541,
+    "employed_f": 0.05102059068838076,
+    "log_income": -0.0008780000619682708
+  },
+  "std_errors": {
+    "const": 0.008981056492381923,
+    "health_index": 0.01374558501108875,
+    "age10": 0.0026820088966467235,
+    "age10_sq": 0.0002949776679398423,
+    "employed_f": 0.002311179219435359,
+    "log_income": 0.0007310289156149707
+  },
+  "diagnostics": {
+    "persistence_coef_h_t": 2.964721361816862
+  },
+  "notes": [
+    "Strong positive h_t coefficient => health is highly persistent (AR-like)."
+  ],
+  "caveats": [
+    "health_index is an SF-6D proxy (PCS/MCS), not a tariff-based utility.",
+    "Service-access -> health effect NOT estimated (no access measure in UKHLS); it is a calibration parameter in the ABM."
+  ]
+}

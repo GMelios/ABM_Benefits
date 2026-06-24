@@ -1,0 +1,78 @@
+{
+  "_generated_by": "src/estimation/estimate.py",
+  "_generated_at": "2026-06-24T11:58:15+00:00",
+  "_source": "UKHLS (Understanding Society), EUL, waves 1-11; GOR geography",
+  "name": "takeup",
+  "spec": "logit (GLM Binomial/logit), cluster(pidp)",
+  "outcome": "benefit receipt (y_benefit>0), ages 16-64",
+  "waves": "1-11",
+  "variables": [
+    "log_market",
+    "no_market_income",
+    "health_index",
+    "education",
+    "region",
+    "sex"
+  ],
+  "n_obs": 313703,
+  "n_persons": 65653,
+  "weight": "weight_xsec",
+  "coefficients": {
+    "const": 1.1968164583252645,
+    "log_market": -0.1415090880312905,
+    "no_market_income": 0.294035565041547,
+    "health_index": -3.597371271611247,
+    "education_degree": 0.17206815011906645,
+    "education_gcse": 0.30299176944323325,
+    "education_no_qual": 0.6888136779513033,
+    "education_other_higher": 0.3707175778482453,
+    "education_other_qual": 0.5487290199906832,
+    "region_East of England": -0.03024686416917946,
+    "region_London": -0.2360168119222196,
+    "region_North East": 0.13772504699429378,
+    "region_North West": 0.12921759774288866,
+    "region_Northern Ireland": 0.09363483198127413,
+    "region_Scotland": 0.09171460226766726,
+    "region_South East": -0.07319179797999556,
+    "region_South West": 0.06206637148356662,
+    "region_Wales": 0.07515577656613204,
+    "region_West Midlands": -0.014400750777925166,
+    "region_Yorkshire and the Humber": 0.12151532221070852,
+    "sex_2.0": 1.0226988202066454
+  },
+  "std_errors": {
+    "const": 0.0678904502768217,
+    "log_market": 0.005516140285112105,
+    "no_market_income": 0.03786058301428985,
+    "health_index": 0.08321777361195554,
+    "education_degree": 0.027068396041449064,
+    "education_gcse": 0.026987751956045275,
+    "education_no_qual": 0.0376682150284646,
+    "education_other_higher": 0.032442209429905465,
+    "education_other_qual": 0.03811729431103975,
+    "region_East of England": 0.04563914965423389,
+    "region_London": 0.04579872981402613,
+    "region_North East": 0.05678950868191836,
+    "region_North West": 0.04432064296427973,
+    "region_Northern Ireland": 0.0492843327649215,
+    "region_Scotland": 0.04534209976575956,
+    "region_South East": 0.04263716982098653,
+    "region_South West": 0.046053315754354174,
+    "region_Wales": 0.047896115997581944,
+    "region_West Midlands": 0.04688729500197149,
+    "region_Yorkshire and the Humber": 0.04608563839998748,
+    "sex_2.0": 0.019363043439154737
+  },
+  "diagnostics": {
+    "weighted_receipt_rate": 0.3577260752113385,
+    "market_income_gradient": -0.1415090880312905,
+    "no_market_income_coef": 0.294035565041547
+  },
+  "notes": [
+    "Baseline weighted receipt rate = 35.8%; negative income gradient expected.",
+    "Awareness and take-up multipliers are free parameters calibrated to observed receipt."
+  ],
+  "caveats": [
+    "'Receipt' here is broad (any state benefit incl. pensions/child benefit); narrow to means-tested working-age benefits for sharper targeting."
+  ]
+}

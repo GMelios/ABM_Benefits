@@ -54,7 +54,7 @@ uv run python -m src.population.synthesize
 uv run python -m src.experiments.run
 
 # Posterior calibration (ABC) and out-of-sample validation
-uv run python -m src.experiments.run_tier2
+uv run python -m src.experiments.run_calibration_validation
 
 # Health-to-mortality channel: healthcare extends life, valued separately
 uv run python -m src.experiments.run_mortality
@@ -89,9 +89,8 @@ of equivalent variations, coverage and unmet need by region, the priority-mass s
 decomposition, and the Atkinson index of income before and after. The cost-effectiveness
 verdict expresses these against programme cost as a benefit-cost ratio.
 
-The methodology is documented in `docs/ODD_protocol.md`, the variable reference in
-`docs/data_dictionary.md`, and the modelling choices and assumptions in
-`docs/whats_real_vs_provisional.md`. The project report and briefing are in `reports/`.
+The methodology is documented in `docs/ODD_protocol.md` and the variable reference in
+`docs/data_dictionary.md`. The project report is in `reports/`.
 
 ## Licence
 
