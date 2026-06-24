@@ -1,0 +1,85 @@
+[project]
+name = "social-services-abm"
+version = "0.1.0"
+description = "Social-Services ABM (Task T1.3): UKHLS-estimated behaviour, Mesa ABM, WEVM welfare valuation (report D1.2)."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    # --- data + estimation layer (src/estimation) ---
+    "pandas>=2.2",
+    "pyarrow>=16",
+    "numpy>=1.26",
+    "scipy>=1.13",
+    "statsmodels>=0.14",
+    "linearmodels>=6.0",      # panel FE / dynamic panel estimators
+    # --- synthetic population (src/population) ---
+    "ipfn>=1.4",              # iterative proportional fitting
+    # --- behaviour layer: the ABM (src/model) ---
+    "mesa>=3.0,<4",           # Mesa 3.x stable; Mesa 4 is pre-release — do not adopt (CLAUDE.md §5)
+    "networkx>=3.0",          # required by mesa.discrete_space (top-level import)
+    # --- experiments: sensitivity + calibration (src/experiments) ---
+    "SALib>=1.5",
+    "optuna>=3.6",
+    # --- outputs ---
+    "matplotlib>=3.8",
+    "pyyaml>=6.0",            # config-driven scenario YAMLs
+]
+
+[project.optional-dependencies]
+# Spatial layer — added only when Mesa-Geo geometry/catchments are needed.
+# v1 uses a region index (GOR); this keeps the heavy GDAL stack out of the core sync.
+spatial = [
+    "geopandas>=1.0",
+    "mesa-geo>=0.9",
+]
+# Optional ABC calibration with parameter posteriors (deepening step).
+abc = [
+    "pyabc>=0.12",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.6",
+    "black>=24.0",
+]
+
+[tool.uv]
+package = false   # this is an application/analysis repo, not an installable library
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+# ----------------------------------------------------------------------------
+# Style & quality (CLAUDE.md §5): type hints, docstrings, ruff + black
+# ----------------------------------------------------------------------------
+[tool.black]
+line-length = 100
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "NPY", "D"]  # incl. import-sort, pyupgrade, bugbear, numpy, docstrings
+ignore = [
+    "D100",  # missing docstring in public module (headers used instead)
+    "D104",  # missing docstring in public package
+    "E501",  # line length handled by black
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["D"]  # docstrings not required in tests
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+pythonpath = ["."]   # make the `src` package importable without installing the project

@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 George Melios
+Copyright (c) 2026 The BENEFITS Project and its contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,17 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+-------------------------------------------------------------------------------
+
+NOTE ON SCOPE
+
+This MIT licence applies to the SOURCE CODE and other original materials in this
+repository (model code, tests, configuration, estimated coefficient files, and
+documentation). It does NOT grant any rights over the underlying research data.
+
+The UK Household Longitudinal Study (Understanding Society, UKHLS) microdata used
+to estimate the model is provided by the UK Data Service under its own End User
+Licence and is NOT distributed with this repository. Access to and use of that
+data are governed solely by the UK Data Service licence terms, not by this
+licence. See docs/DATA_ACCESS.md.
